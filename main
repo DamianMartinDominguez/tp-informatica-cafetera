@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void esperar(int *p, int *r);
+
+
+int main()
+ {
+ 	int servicio=0;
+	int estado=0;
+ 	int *p,*r;
+ 	p=&servicio;
+ 	r=&estado;
+ 	
+ 	printf("\nvalor de memoria p: %d\n",p);
+ 	
+ 	printf("\n entrando al switch, estado: %d \n",*r);
+ 	
+
+ 
+ 	while(1)
+ 	{
+ 	
+ 	switch(estado)
+ 	{
+ 		case 0:   {
+ 		            printf("\nentro en el estado 0\n");
+		 			esperar(p,r);
+ 					break;
+ 	            	}
+ 	/*	case '1':   calentarAgua();
+ 					break;
+ 		case '2':   ponerCafe();
+ 					break;
+ 		case '3':   servirAgua();
+ 					break;
+ 		case '4':   calentarLeche();
+ 					break;	
+ 		case '5':   servirLeche();
+ 					break;			
+ 		case '6':   mezclarBebida();
+ 					break;	
+ 	*/
+	 }
+    }
+ }
+ 
+ 
+ void esperar(int *p, int *r)
+ {
+ 
+ 	int *pNuevo;
+ 	int *rNuevo;
+ 	
+ 	pNuevo=p;
+ 	rNuevo=r;
+ 
+	
+	printf("\ningrese que desea tomar\n");
+	printf("1. Te\t 2. cafe\t 3. cafe con leche\n");
+	printf("\n");
+ 	fflush(stdin);
+ 	scanf("%d",pNuevo);
+ 
+ 	if((*pNuevo)!=0)
+ 	{
+ 		
+ 		*rNuevo=1;
+ 		
+ 	}
+
+ }
