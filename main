@@ -95,7 +95,7 @@ int main()
 
       if(*pNuevo==1)//si el servicio es te pasa a servir el agua
  		*rNuevo=3;
- 	  else//si el servicio es te pasa a servir el agua
+ 	  else//si el servicio no es te pasa a colocar cafe
  		*rNuevo=2;
 
     }
