@@ -1,14 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "milibreria.h"
 
-
-void esperar(int *p, int *r);
-void calentarAgua(int *p, int *r);
-void colocandoCafe(int *p, int *r);
-void servirAgua(int *p, int *r);
-void calentarLeche(int *p, int *r);
-void servirLeche(int *p, int *r);
-void mezclarBebida(int *p, int *r);
+#define ESPERAR        0
+#define CALENTAR_AGUA  1
+#define COLOCANDO_CAFE 2
+#define SERVIR_AGUA    3
+#define CALENTAR_LECHE 4
+#define SERVIR_LECHE   5
+#define MEZCLAR_BEBIDA 6
 
 
 int main()
@@ -24,21 +22,20 @@ int main()
 
  	switch(estado)
  	{
- 		case 0:
-		 			esperar(p,r);
+ 		case ESPERAR:	      esperar(p,r);
  					break;
 
- 		case 1:   calentarAgua(p,r);
+ 		case CALENTAR_AGUA:   calentarAgua(p,r);
  					break;
- 		case 2:   colocandoCafe(p,r);
+ 		case COLOCANDO_CAFE:   colocandoCafe(p,r);
  					break;
- 		case 3:   servirAgua(p,r);
+ 		case SERVIR_AGUA:     servirAgua(p,r);
  					break;
- 		case 4:   calentarLeche(p,r);
+ 		case CALENTAR_LECHE:   calentarLeche(p,r);
  					break;
- 		case 5:   servirLeche(p,r);
+ 		case SERVIR_LECHE:    servirLeche(p,r);
  					break;
- 		case 6:   mezclarBebida(p,r);
+ 		case MEZCLAR_BEBIDA:   mezclarBebida(p,r);
  					break;
 
 	 }
@@ -46,151 +43,3 @@ int main()
  }
 
 
- void esperar(int *p, int *r)
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-
-	printf("\ningrese que desea tomar\n");
-	printf("1. Te\t 2. cafe\t 3. cafe con leche\n");
-	printf("\n");
- 	fflush(stdin);
- 	scanf("%d",pNuevo);
-
- 	if((*pNuevo)!=0)
- 	{
-
- 		*rNuevo=1;
-
- 	}
-
- }
-
-
- void calentarAgua(int *p, int *r)//estado 1
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
- 	int temperaturaAgua=10;
- 	int setAgua= 85;
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-
-	printf("\ningrese la temperatura del agua\n");//simboliza la lectura del sensor de temperatura
-
- 	fflush(stdin);
- 	scanf("%d",&temperaturaAgua);
-
- 	if(temperaturaAgua>(setAgua-1))
-    {
- 	  printf("\nel agua esta caliente.\n");
-
-      if(*pNuevo==1)//si el servicio es te pasa a servir el agua
- 		*rNuevo=3;
- 	  else//si el servicio no es te pasa a colocar cafe
- 		*rNuevo=2;
-
-    }
-
- }
-
- void colocandoCafe(int *p, int *r)//estado 2
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
-
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-
-	printf("\ncolocando cafe\n");
- 		*rNuevo=3;
-}
-
-void servirAgua(int *p, int *r)//estado 3
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
-
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-
-	printf("\nsirviendo agua\n");
-	if(*pNuevo==1)//si el servicio es te se termina el proceso
- 		*rNuevo=0;
- 	  else
-      {if(*pNuevo==2)//si el servicio es cafe solo pasa a mezclar bebida
- 		*rNuevo=6;
- 	  else//si el servicio es cafe con leche pasa a calentar leche
- 		*rNuevo=4;
-      }
-}
-
-
-void calentarLeche(int *p, int *r)//estado 4
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
- 	int temperaturaLeche=10;
- 	int setLeche=75;
-
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-    printf("\ningrese la temperatura de la leche\n");//simboliza la lectura del sensor de temperatura
-
- 	fflush(stdin);
- 	scanf("%d",&temperaturaLeche);
-
- 	if(temperaturaLeche>(setLeche-1))
-    {
- 	  printf("\nla leche esta caliente.\n");
-
- 		*rNuevo=5;
-    }
-}
-
-void servirLeche(int *p, int *r)//estado 5
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
-
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-
-	printf("\nsirviendo leche\n");
- 		*rNuevo=6;
-}
-
-void mezclarBebida(int *p, int *r)//estado 6
- {
-
- 	int *pNuevo;
- 	int *rNuevo;
-
-
- 	pNuevo=p;
- 	rNuevo=r;
-
-
-	printf("\nmezclando bebida\n");
- 		*rNuevo=0;
-}
