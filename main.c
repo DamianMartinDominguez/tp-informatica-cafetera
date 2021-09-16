@@ -13,29 +13,29 @@ int main()
  {
  	int servicio=0;
 	int estado=0;
- 	int *p,*r;
+ 	int *p;
  	p=&servicio;
- 	r=&estado;
+ 	
 
  	while(1)
  	{
 
  	switch(estado)
  	{
- 		case ESPERAR:	      esperar(p,r);
+ 		case ESPERAR:	       estado=esperar(p);
  					break;
 
- 		case CALENTAR_AGUA:   calentarAgua(p,r);
+ 		case CALENTAR_AGUA:    estado=calentarAgua(p);
  					break;
- 		case COLOCANDO_CAFE:   colocandoCafe(p,r);
+ 		case COLOCANDO_CAFE:   estado=colocandoCafe(p);
  					break;
- 		case SERVIR_AGUA:     servirAgua(p,r);
+ 		case SERVIR_AGUA:      estado=servirAgua(p);
  					break;
- 		case CALENTAR_LECHE:   calentarLeche(p,r);
+ 		case CALENTAR_LECHE:   estado=calentarLeche(p);
  					break;
- 		case SERVIR_LECHE:    servirLeche(p,r);
+ 		case SERVIR_LECHE:     estado=servirLeche(p);
  					break;
- 		case MEZCLAR_BEBIDA:   mezclarBebida(p,r);
+ 		case MEZCLAR_BEBIDA:   estado=mezclarBebida(p);
  					break;
 
 	 }
