@@ -15,11 +15,11 @@ int main()
 	int estado=0;
  	int *p;
  	p=&servicio;
- 	
+ 	(int)(*proceso[7])(int *p)={esperar,calentarAgua,colocandoCafe,servirAgua,calentarLeche,servirLeche,mezclarBebida};
 
  	while(1)
  	{
-
+	
  	switch(estado)
  	{
  		case ESPERAR:	       estado=esperar(p);
