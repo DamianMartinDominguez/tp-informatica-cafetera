@@ -12,33 +12,17 @@
 int main()
  {
  	int servicio=0;
-	int estado=0;
+	unsigned char posicion;
  	int *p;
  	p=&servicio;
+ 
+ 	
  	(int)(*proceso[7])(int *p)={esperar,calentarAgua,colocandoCafe,servirAgua,calentarLeche,servirLeche,mezclarBebida};
 
  	while(1)
  	{
 	
- 	switch(estado)
- 	{
- 		case ESPERAR:	       estado=esperar(p);
- 					break;
-
- 		case CALENTAR_AGUA:    estado=calentarAgua(p);
- 					break;
- 		case COLOCANDO_CAFE:   estado=colocandoCafe(p);
- 					break;
- 		case SERVIR_AGUA:      estado=servirAgua(p);
- 					break;
- 		case CALENTAR_LECHE:   estado=calentarLeche(p);
- 					break;
- 		case SERVIR_LECHE:     estado=servirLeche(p);
- 					break;
- 		case MEZCLAR_BEBIDA:   estado=mezclarBebida(p);
- 					break;
-
+ 	estado=(*proceso[posicion])(int *p)
 	 }
     }
  }
-
