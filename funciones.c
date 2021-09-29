@@ -54,7 +54,7 @@
  		return 2;
 
     }
-
+	return 1;
  }
 
 int colocandoCafe(int *p)//estado 2
@@ -117,9 +117,10 @@ int calentarLeche(int *p)//estado 4
 
  		return 5;
     }
+	return 4;
 }
 
-int servirLeche(int *p, int *r)//estado 5
+int servirLeche(int *p)//estado 5
  {
 
  	int *pNuevo;
