@@ -1,1 +1,13 @@
 printf("aca va a estar el archivo de configuracion");
+
+
+
+FILE *nuevo;
+
+if(nuevo= fopen("configuracion.txt","wt"));
+{
+printf("error en la apertura de la configuracion\n");
+return 1;
+}
+
+fwrite(,sizeof(),1,nuevo)
