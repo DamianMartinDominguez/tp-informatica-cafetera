@@ -1,4 +1,17 @@
-printf("aca va a estar el archivo de configuracion");
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct configuracion
+{
+	int setAgua;
+	int setLeche;
+}configuracion_t;
+
+int main()
+ {
+ 	
+ 	printf("aca va a estar el archivo de configuracion");
 
 
 
@@ -10,4 +23,23 @@ printf("error en la apertura de la configuracion\n");
 return 1;
 }
 
-fwrite(,sizeof(),1,nuevo)
+printf("MENU\n\n\n");
+
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+printf("\n\n\n");
+
+fwrite(&configuracion_t,sizeof(configuracion_t),1,nuevo);
+
+
+ 	
+fclose(nuevo);
+	
+	
+}
