@@ -1,45 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
-struct configuracion
-{
-	int setAgua;
-	int setLeche;
-}configuracion_t;
+char * getKey(char * key);
 
 int main()
- {
- 	
- 	printf("aca va a estar el archivo de configuracion");
-
-
-
-FILE *nuevo;
-
-if(nuevo= fopen("configuracion.txt","wt"));
 {
-printf("error en la apertura de la configuracion\n");
+FILE * config;
+char cadena[40], *key, * val;
+char variables[2][20]={"setAgua","setLeche"},i;
+char setAgua, setLeche;
+if(config= fopen("config.conf","rb")== NULL)
+{
+printf("\nno se encontro archivo de configuracion\n");
 return 1;
 }
+fgets(cadena,40,config);
+do
+{
+key = cadena;
+if(*key != '#' && strlen key >= 0)
+}
 
-printf("MENU\n\n\n");
-
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-printf("\n\n\n");
-
-fwrite(&configuracion_t,sizeof(configuracion_t),1,nuevo);
-
-
- 	
-fclose(nuevo);
-	
-	
 }
