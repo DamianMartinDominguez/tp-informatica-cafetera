@@ -1,5 +1,13 @@
 #include "milibreria.h"
 
+#define ESPERAR        0
+#define CALENTAR_AGUA  1
+#define COLOCANDO_CAFE 2
+#define SERVIR_AGUA    3
+#define CALENTAR_LECHE 4
+#define SERVIR_LECHE   5
+#define MEZCLAR_BEBIDA 6
+
 
  int esperar(int *p)
  {
@@ -20,7 +28,7 @@
  	if((*pNuevo)!=0)
  	{
 
- 		return 1;
+ 		return CALENTAR_AGUA;
 
  	}
 
@@ -49,12 +57,12 @@
  	  printf("\nel agua esta caliente.\n");
 
       if(*pNuevo==1)//si el servicio es te pasa a servir el agua
- 		return 3;
+ 		return SERVIR_AGUA;
  	  else//si el servicio no es te pasa a colocar cafe
- 		return 2;
+ 		return COLOCANDO_CAFE;
 
     }
-	return 1;
+	return CALENTAR_AGUA;
  }
 
 int colocandoCafe(int *p)//estado 2
@@ -69,7 +77,7 @@ int colocandoCafe(int *p)//estado 2
 
 
 	printf("\ncolocando cafe\n");
- 		return 3;
+ 		return SERVIR_AGUA;
 }
 
 int servirAgua(int *p)//estado 3
@@ -84,12 +92,12 @@ int servirAgua(int *p)//estado 3
 
 	printf("\nsirviendo agua\n");
 	if(*pNuevo==1)//si el servicio es te se termina el proceso
- 		return 0;
+ 		return ESPERAR;
  	  else
       {if(*pNuevo==2)//si el servicio es cafe solo pasa a mezclar bebida
- 		return 6;
+ 		return MEZCLAR_BEBIDA;
  	  else//si el servicio es cafe con leche pasa a calentar leche
- 		return 4;
+ 		return CALENTAR_LECHE;
       }
 }
 
@@ -115,9 +123,9 @@ int calentarLeche(int *p)//estado 4
     {
  	  printf("\nla leche esta caliente.\n");
 
- 		return 5;
+ 		return SERVIR_LECHE;
     }
-	return 4;
+	return CALENTAR_LECHE;
 }
 
 int servirLeche(int *p)//estado 5
@@ -132,7 +140,7 @@ int servirLeche(int *p)//estado 5
 
 
 	printf("\nsirviendo leche\n");
- 		return 6;
+ 		return MEZCLAR_BEBIDA;
 }
 
 int mezclarBebida(int *p)//estado 6
@@ -147,6 +155,6 @@ int mezclarBebida(int *p)//estado 6
 
 
 	printf("\nmezclando bebida\n");
- 		return 0;
+ 		return ESPERAR;
 }
 
